@@ -70,7 +70,7 @@ def Delay(T=1, initial_state=default_override_or(0), name=''):
 # TODO: reconsider the name. Windowed()?
 def PastValueWindow(window_size, axis, go_backwards=default_override_or(False), name=''):
     '''
-    PastValueWindow(window_size, axis, go_backwards=False, name='')
+    PastValueWindow(window_size, axis, go_backwards=default_override_or(False), name='')
 
     Layer factory function to create a function that returns a static, maskable view for N past steps over a sequence along the given 'axis'.
     It returns two matrices: a value matrix, shape=(N,dim), and a valid window, shape=(N,1).
@@ -164,6 +164,8 @@ def _sanitize_function(f):
 # TODO: allow to say sequential=False, axis=2, length=100, ... something like this
 def RecurrenceFrom(step_function, go_backwards=default_override_or(False), return_full_state=False, name=''):
     '''
+    RecurrenceFrom(step_function, go_backwards=default_override_or(False), return_full_state=False, name='')
+
     Layer factory function to create a function that runs a cell function recurrently over an input sequence, with initial state.
     This layer is very similar to :func:`~cntk.layers.sequence.Recurrence`,
     except that the initial state is data dependent, and thus passed to the layer function as a data input
@@ -275,6 +277,8 @@ def RecurrenceFrom(step_function, go_backwards=default_override_or(False), retur
 # TODO: Can bidirectionality be an option of this? bidirectional=True?
 def Recurrence(step_function, go_backwards=default_override_or(False), initial_state=default_override_or(0), return_full_state=False, name=''):
     '''
+    Recurrence(step_function, go_backwards=default_override_or(False), initial_state=default_override_or(0), return_full_state=False, name='')
+
     Layer factory function to create a function that runs a step function recurrently over an input sequence.
     This implements the typical recurrent model.
 
@@ -390,7 +394,7 @@ def Recurrence(step_function, go_backwards=default_override_or(False), initial_s
 
 def Fold(folder_function, go_backwards=default_override_or(False), initial_state=default_override_or(0), return_full_state=False, name=''):
     '''
-    Fold(folder_function, go_backwards=False, initial_state=0, return_full_state=False, name='')
+    Fold(folder_function, go_backwards=default_override_or(False), initial_state=default_override_or(0), return_full_state=False, name='')
 
     Layer factory function to create a function that runs a step function recurrently over an input sequence,
     and returns the final state.
